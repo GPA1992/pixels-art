@@ -7,7 +7,7 @@ body {
     height: 50px;
     display: inline-block;
     border: 1px solid black;
-    margin: 5px;
+    margin: 2px;
     display: inline-block;
 }
 
@@ -29,9 +29,15 @@ body {
     border: 1px solid black;
     margin: 5px;
     display: grid;
+    background-color: white;
     
 }
 
 div {
     display: inline-block;
+}
+
+#clear-board {
+    
+    float: center;
 }

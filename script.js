@@ -1,7 +1,3 @@
-// funções
-
-
-
 function generateColor() {
 
     const letters = '0123456789ABCDEF';
@@ -23,7 +19,7 @@ function generateColor() {
     tagH1.id = 'title';
         corpo.appendChild(tagH1);
 
-// Item 2 - Paleta de cores
+
     
   let section = document.createElement('section');
     section.id = 'color-palette'
@@ -40,27 +36,90 @@ function criarQuadrados (quantidade, className) {
 }
 criarQuadrados(4, 'color');
 
-//primeiro quadrado preto
-function selectBlack() {
-  const palette = document.getElementsByClassName('color');
-  palette[0].classList.add('selected');
-}
+    let section2 = document.createElement('section');
+    corpo.appendChild(section2); 
+
+    let botao = document.createElement('button');
+    botao.innerText = 'Limpar';
+    botao.id= 'clear-board'
+    section2.appendChild(botao);
+
 
 // Pixel Board
 
- let section2 = document.createElement('section');
-    section2.id = 'pixel-board'
-    corpo.appendChild(section2);
+ let section3 = document.createElement('section');
+    section3.id = 'pixel-board'
+    corpo.appendChild(section3);
 
     for (let i = 0; i < 25; i++) {
         const box = document.createElement('div');
         box.className = 'pixel';
-        section2.appendChild(box);
+        section3.appendChild(box);
         
     }  
 
+  
+   
+  const firstBlack = document.getElementById('color-palette').firstElementChild;
+  firstBlack.style.backgroundColor = 'black';
 
-    ueee
+  const palleteCor = document.querySelector('#color-palette').firstElementChild;
+  palleteCor.className += ' selected'
+   
+  // Altera os Selected e Seleciona a cor
+  
+  const colors = document.getElementsByClassName('color');
+
+  function changeSelected () {
+      const colors = document.getElementsByClassName('color');
+      for (let i = 0; i < colors.length; i++ ) {
+      colors[i].addEventListener('click', () => {
+      const selectedColor = document.querySelector('.selected');
+      selectedColor.classList.remove('selected');
+      colors[i].classList.add('selected');
+      });
+    }
+}
+changeSelected () 
+ 
+
+// Pintar os Pixels
+const pixels = document.getElementsByClassName('pixel');
+  for (let i = 0; i < pixels.length; i ++) {
+    pixels[i].addEventListener('click', selectColor);
+  function selectColor (){
+      const selectedColor = document.querySelector('.selected').style.backgroundColor;
+      pixels[i].style.backgroundColor = selectedColor;
+    };
+  }
+
+// resetar botão
+botao.addEventListener('click', limparPixels);
+  function limparPixels() {
+  let pixels = document.getElementsByClassName('pixel');
+  for (let i = 0; i < pixels.length; i ++ ) {
+    pixels[i].style.backgroundColor = 'white';
+  }
+  
+};
+
+
+  
+
+
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
     
    
 
