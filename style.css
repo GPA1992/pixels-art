@@ -1,7 +1,17 @@
-body {
-    
+*{
+    margin: 0;
+    padding: 0;
 }
 
+html, body {
+    height: 100%;
+    box-sizing: border-box;
+}
+body{
+display: flex;
+align-items: center;
+flex-direction: column;
+}
 .color {
     width: 50px;
     height: 50px;
@@ -12,32 +22,17 @@ body {
 }
 
 #pixel-board{
-   width: 5px;
-   height: 5px;
-   margin-top: 30px;
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
-   grid-template-rows: repeat(5, 1fr);
-   
-    
+   display: grid;  
+   gap: 3px;
+   padding: 3px;
+   background-color: rgb(255, 255, 255);
+  
+       
 }
-
 .pixel{
     width: 40px;
     height: 40px;
-    display: inline-block;
-    border: 1px solid black;
-    margin: 5px;
-    display: grid;
+    border: 1px solid black;  
     background-color: white;
-    
-}
-
-div {
-    display: inline-block;
-}
-
-#clear-board {
-    
-    float: center;
+    margin: 0;
 }
