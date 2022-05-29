@@ -117,13 +117,6 @@ criarQuadrados(4, 'color');
     
       }) 
 
-
-     
-         
-
-
-  
- 
 //  
 const firstBlack = document.getElementById('color-palette').firstElementChild;
 firstBlack.style.backgroundColor = 'black';

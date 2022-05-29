@@ -11,6 +11,7 @@ body{
 display: flex;
 align-items: center;
 flex-direction: column;
+background-color: rgb(145, 119, 148);
 }
 .color {
     width: 50px;
@@ -26,6 +27,7 @@ flex-direction: column;
    gap: 3px;
    padding: 3px;
    background-color: rgb(255, 255, 255);
+   color: azure;
   
        
 }
@@ -37,15 +39,26 @@ flex-direction: column;
     margin: 0;
 }
 
-/* #clear-board, #board-size, #generate-board {
+#clear-board, #board-size, #generate-board {
     padding: 5px;
     margin-left: 5px;
     border: 2px solid grey;
     border-radius: 4px;
-} */
+    display: inline-block;
+}
 
-/* nav {
+nav {
     background-color: black;
-      
+    width: 100%;
+    text-align: center;
+}
 
-} */
+#title, #color-palette {
+    background-color: rgb(145, 119, 148);
+    width: 100%;
+    text-align: center;
+}
+
+#title {
+    color: white;
+}
