@@ -55,8 +55,7 @@ criarQuadrados(4, 'color');
     inputBoard.id= 'board-size';
     inputBoard.type='number';
     inputBoard.min='1';
-    inputBoard.max='49'
-    inputBoard.value = 5;
+    inputBoard.max='60'
     navBar.appendChild(inputBoard);
   
    const botaoVqv = document.createElement('button');
@@ -78,15 +77,17 @@ criarQuadrados(4, 'color');
             const box = document.createElement('div');
             box.className = 'pixel';
             pixelBoard.appendChild(box);
-
             box.addEventListener('click', function(){
             const selectedColor = document.querySelector('.selected').style.backgroundColor;
             box.style.backgroundColor = selectedColor;
+            
           })              
         }
     }  
-  criarPixel(inputBoard.value);
-    
+  criarPixel(5);
+
+  // verificar tamanho do board
+
 
   
   function newBoard(){
@@ -96,6 +97,30 @@ criarQuadrados(4, 'color');
     })
   }
   newBoard();
+
+  
+    botaoVqv.addEventListener('click', function(){
+      if (inputBoard.value < 5 && inputBoard.value >= 1) {
+      pixelBoard.innerHTML = ''
+      inputBoard.value = 5;
+      criarPixel(5);
+      } if (inputBoard.value > 50) {
+        pixelBoard.innerHTML = ''
+        inputBoard.value = 50;
+        criarPixel(50);
+      } if (inputBoard.value == '') {
+        alert('Board Inválido!');
+        pixelBoard.innerHTML = ''
+        inputBoard.value = 5;
+        criarPixel(5);
+      } 
+    
+      }) 
+
+
+     
+         
+
 
   
  
