@@ -11,8 +11,6 @@ function generateColor() {
   return color;
   
 }
-
-
 // titulo
 let corpo = document.querySelector('body');
 let tagH1 = document.createElement('h1');
@@ -21,13 +19,11 @@ let tagH1 = document.createElement('h1');
       corpo.appendChild(tagH1);
 
 //Paleta de Cores
-  
 let colorPallete = document.createElement('section');
   colorPallete.id = 'color-palette'
   corpo.appendChild(colorPallete);
 // quadrado paleta de cores
 function criarQuadrados (quantidade, className) {
-
   for (let i = 0; i < quantidade; i +=1) {
       let box = document.createElement('div');
       box.className = className;
@@ -54,10 +50,6 @@ criarQuadrados(4, 'color');
 }
 };
 
-
-
-
-
 // Pixel Board
     const inputBoard = document.createElement('input');
     inputBoard.id= 'board-size';
@@ -76,6 +68,9 @@ criarQuadrados(4, 'color');
     pixelBoard.id = 'pixel-board'
     corpo.appendChild(pixelBoard);
 
+ 
+
+// Criar e pintar os pixel
   function criarPixel (size) {
     pixelBoard.style.gridTemplateColumns = '40px '.repeat(size);
     pixelBoard.style.gridTemplateRows = '40px '.repeat(size);
@@ -83,28 +78,24 @@ criarQuadrados(4, 'color');
             const box = document.createElement('div');
             box.className = 'pixel';
             pixelBoard.appendChild(box);
-                        
+
+            box.addEventListener('click', function(){
+            const selectedColor = document.querySelector('.selected').style.backgroundColor;
+            box.style.backgroundColor = selectedColor;
+          })              
         }
     }  
-  criarPixel(5);
-
-    function clearBoard () {
-      const board = document.getElementById('pixel-board');
-      const divPixels = board.children.length;
-      for (let index = 0; index < divPixels; index += 1) {
-        pixelBoard.removeChild(board.firstChild);
-      }
-    }
+  criarPixel(inputBoard.value);
     
-    function newBoard(){
+
+  
+  function newBoard(){
     botaoVqv.addEventListener('click', function(){
-        clearBoard ()
-        criarPixel(inputBoard.value)
-      })
-      
-    }
- 
-    newBoard();
+    pixelBoard.innerHTML = ''
+    criarPixel(inputBoard.value)
+    })
+  }
+  newBoard();
 
   
  
@@ -132,15 +123,7 @@ function changeSelected () {
 changeSelected () 
 
 
-// Pintar os Pixels
-const pixels = document.getElementsByClassName('pixel');
-for (let i = 0; i < pixels.length; i ++) {
-  pixels[i].addEventListener('click', selectColor);
-function selectColor (){
-    const selectedColor = document.querySelector('.selected').style.backgroundColor;
-    pixels[i].style.backgroundColor = selectedColor;
-  };
-}
+
 
 
 
